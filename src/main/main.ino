@@ -1,9 +1,10 @@
+#include <Movement.h>
+
 #include <SharpIR.h>
 #include <AFMotor.h>
 #include <math.h>
 #include <inttypes.h>
 
-#include "Movement\Movement.h"
 
 // To fix this import issue, look up the library and import it into the project file
 // -- i was too lazy to do that, commenting was easier in the moment
@@ -16,11 +17,9 @@
 
 // global variables, all stepper motors and sensors are defined here
 
-// Initialize motors (has to be done here because Arduino reasons)
+// Initialize motors (has to be done here instead of move class because Arduino reasons)
 uint16_t stepsPerRev = 60;
-AF_Stepper lMotor(stepsPerRev, 1);
-AF_Stepper rMotor(stepsPerRev, 2);
-Movement move(lMotor, rMotor);
+Movement move(&AF_Stepper(stepsPerRev, 1), &AF_Stepper(stepsPerRev, 2));
 
 SharpIR sensorR( SharpIR::GP2Y0A41SK0F, A5 );
 SharpIR sensorFR( SharpIR::GP2Y0A41SK0F, A4 );
@@ -34,15 +33,6 @@ uint8_t F  = 0;    // Value of the front sensor
 uint8_t FL = 0;    // Value of the front left sensor
 uint8_t L  = 0;    // Value of the left sensor
 
-/* each node is an 8 bit int, representing the state of the walls.
- * 
- * 4 least significant are binary representation of the N/E/S/W walls (1  = wall, 0 = no wall)
- * 0b1111 (15) signifies that the tile hasn't been explored yet
- * The top 4 bits are unused
- * 
- * ---- NESW
- */
-uint8_t maze[16][16];
 
 //set speed of motor and Initialize all nodes in the maze
 void setup() {
@@ -53,7 +43,7 @@ void setup() {
 
 
   Serial.begin(9600);   // Should be "Serial1", "Serial2", or something like that. Same on line 386
-  move.setMotorSpeeds(160);
+  
   for(int x = 0; x < 16; ++x){
     for(int y = 0; y < 16; ++y){
       maze [x][y] = 0b1111;

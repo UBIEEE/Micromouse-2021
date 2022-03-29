@@ -1,31 +1,15 @@
 #######################################
-# Syntax Coloring Map for Movement
+# Syntax Coloring Map for Navigation
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-Movement	KEYWORD1
-
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-moveForward	KEYWORD2
-turnLeft	KEYWORD2
-turnRight	KEYWORD2
-turnAround	KEYWORD2
-
 #######################################
 # Constants (LITERAL1)
 #######################################
-
-x	LITERAL1
-y	LITERAL1
-ori	LITERAL1
-
-NORTH	LITERAL1
-EAST	LITERAL1
-SOUTH	LITERAL1
-WEST	LITERAL1

@@ -1,14 +1,17 @@
-#ifndef Move_h
-#define Move_h
+#ifndef Movement_h
+#define Movement_h
 
 #include <Arduino.h>
 #include <AFMotor.h>
 #include <inttypes.h>
 
+#include "Maze.h"
+
+// Class of functions and variables related to physically moving the robot
 class Movement
 {
 	public:
-		Movement(AF_Stepper *lMotor, AF_Stepper *rMotor);
+		Movement(AF_Stepper *lMotor, AF_Stepper *rMotor, Maze *mazePtr);
 
 		// Moves the robot forward one grid tile
 		void moveForward();
@@ -19,18 +22,14 @@ class Movement
 		// Rotates the robot in place, 180 deg around
 		void turnAround();
 
-		uint8_t x = 0;     // X position of the robot
-		uint8_t y = 0;     // Y position of the robot
-		uint8_t ori = 0;   // Orientation of the robot
 				
-		// Constants for orientation. N=0, E=1, S=2, W=3
-		enum directions { NORTH, EAST, SOUTH, WEST };
 
 	private:
 		AF_Stepper *_lMotor;
 		AF_Stepper *_rMotor;
 		uint16_t _stepsPerRev = 60;
 		uint8_t _motorSpeed = 160;
+		Maze *_maze;
 };
 
-#endif //Move_h
+#endif //Movement_h
