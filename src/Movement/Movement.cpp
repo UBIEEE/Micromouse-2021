@@ -4,12 +4,12 @@
 #include "Movement.h"
 
 Movement::Movement(AF_Stepper *lMotor, AF_Stepper *rMotor, Maze *mazePtr) {
- _lMotor = lMotor;
- _rMotor = rMotor;
- _maze = mazePtr;
-  
- _rMotor->setSpeed(_motorSpeed);
- _lMotor->setSpeed(_motorSpeed);
+  _lMotor = lMotor;
+  _rMotor = rMotor;
+  _maze = mazePtr;
+
+  _rMotor->setSpeed(_motorSpeed);
+  _lMotor->setSpeed(_motorSpeed);
 }
 
 void Movement::moveForward() {
@@ -23,8 +23,8 @@ void Movement::moveForward() {
   double turnCounts = 60 * travelDistance;
 
   for(uint8_t i = 0; i < (int)turnCounts; ++i) {
-	_rMotor->step(1, FORWARD, SINGLE);
-	_lMotor->step(1, FORWARD, SINGLE);
+    _rMotor->step(1, FORWARD, SINGLE);
+    _lMotor->step(1, FORWARD, SINGLE);
   }
   
   _maze->movedForward();
@@ -32,24 +32,24 @@ void Movement::moveForward() {
 
 void Movement::turnRight() {
   for(uint8_t i = 0; i < 86; ++i) {
-	_lMotor->step(1, FORWARD, SINGLE); 
-	_rMotor->step(1, BACKWARD, SINGLE);
+    _lMotor->step(1, FORWARD, SINGLE); 
+    _rMotor->step(1, BACKWARD, SINGLE);
   }
   _maze->turnedRight();
 }
 
 void Movement::turnLeft() {
   for(uint8_t i = 0; i < 86; ++i) {
-	_rMotor->step(1, FORWARD, SINGLE); 
-	_lMotor->step(1, BACKWARD, SINGLE); 
+    _rMotor->step(1, FORWARD, SINGLE); 
+    _lMotor->step(1, BACKWARD, SINGLE); 
   }
   _maze->turnedLeft();
 }
 
 void Movement::turnAround() {
   for(uint8_t i = 0; i < 170; ++i) {
-	_rMotor->step(1, BACKWARD, SINGLE); 
-	_lMotor->step(1, FORWARD, SINGLE);
+    _rMotor->step(1, BACKWARD, SINGLE); 
+    _lMotor->step(1, FORWARD, SINGLE);
   } 
   _maze->turnedAround();
 }

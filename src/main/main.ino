@@ -1,5 +1,6 @@
 #include <Movement.h>
 
+
 #include <SharpIR.h>
 #include <AFMotor.h>
 #include <math.h>
@@ -19,7 +20,10 @@
 
 // Initialize motors (has to be done here instead of move class because Arduino reasons)
 uint16_t stepsPerRev = 60;
-Movement move(&AF_Stepper(stepsPerRev, 1), &AF_Stepper(stepsPerRev, 2));
+
+// Classes
+Maze maze;
+Movement move(&AF_Stepper(stepsPerRev, 1), &AF_Stepper(stepsPerRev, 2), &maze);
 
 SharpIR sensorR( SharpIR::GP2Y0A41SK0F, A5 );
 SharpIR sensorFR( SharpIR::GP2Y0A41SK0F, A4 );

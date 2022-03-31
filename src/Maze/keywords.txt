@@ -6,10 +6,27 @@
 # Datatypes (KEYWORD1)
 #######################################
 
+Maze	KEYWORD1
+
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
+fillNode	KEYWORD2
+movedForward	KEYWORD2
+turnedLeft	KEYWORD2
+turnedRight	KEYWORD2
+turnedAround	KEYWORD2
+
 #######################################
 # Constants (LITERAL1)
 #######################################
+
+map	LITERAL1
+x	LITERAL1
+y	LITERAL1
+ori	LITERAL1
+NORTH	LITERAL1
+EAST	LITERAL1
+SOUTH	LITERAL1
+WEST	LITERAL1

@@ -13,16 +13,14 @@ class Movement
 	public:
 		Movement(AF_Stepper *lMotor, AF_Stepper *rMotor, Maze *mazePtr);
 
-		// Moves the robot forward one grid tile
+		// Moves the robot forward one grid tile and updates Maze instance
 		void moveForward();
-		// Rotates the robot in place, 90 deg left
+		// Rotates the robot in place, 90 deg left, and updates Maze instance
 		void turnLeft();
-		// Rotates the robot in place, 90 deg right
+		// Rotates the robot in place, 90 deg right, and updates Maze instance
 		void turnRight();
-		// Rotates the robot in place, 180 deg around
+		// Rotates the robot in place, 180 deg around, and updates Maze instance
 		void turnAround();
-
-				
 
 	private:
 		AF_Stepper *_lMotor;
