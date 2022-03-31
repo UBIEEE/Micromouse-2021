@@ -20,12 +20,3 @@ turnAround	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
-
-x	LITERAL1
-y	LITERAL1
-ori	LITERAL1
-
-NORTH	LITERAL1
-EAST	LITERAL1
-SOUTH	LITERAL1
-WEST	LITERAL1

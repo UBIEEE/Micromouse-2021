@@ -1,6 +1,3 @@
-#include <Arduino.h>
-#include <inttypes.h>
-
 #include "Movement.h"
 
 Movement::Movement(AF_Stepper *lMotor, AF_Stepper *rMotor, Maze *mazePtr) {

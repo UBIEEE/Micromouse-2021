@@ -1,15 +1,15 @@
-#ifndef Routing_h
-#define Routing_h
+#ifndef Pathfinding_h
+#define Pathfinding_h
 
 #include <Arduino.h>
 #include <Movement.h>
 #include <main.ino>
 
 
-class Routing
+class Pathfinding
 {
     public:
-        Routing(uint8_t *mazePtr, int mazeX, int mazeY);
+        Pathfinding(uint8_t *mazePtr, int mazeX, int mazeY);
         enum determineDirection(Movement *movPtr);
         void storePath();
     private:
@@ -23,4 +23,4 @@ class Routing
 
 
 };
-#endif
+#endif // Pathfinding_h

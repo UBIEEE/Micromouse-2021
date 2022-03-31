@@ -12,6 +12,14 @@ class Navigation
 	public:
 		Navigation(/* args */);
 
+		/*
+		 * General decision making function upon enering a cell
+		 *
+		 * If there is only one way to go, go there. If there are multiple
+		 * options, call the Pathfinding function
+		 */
+		void cellDecision();
+
 	
 };
 

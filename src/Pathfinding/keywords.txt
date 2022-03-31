@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map for Routing
+# Syntax Coloring Map for Pathfinding
 #######################################
 
 #######################################
