@@ -21,6 +21,8 @@ class Movement
 		void turnRight();
 		// Rotates the robot in place, 180 deg around, and updates Maze instance
 		void turnAround();
+		// Turns and moves the robot one grid tile in the given direction, based on the Maze.directions enums, and updates the Maze instance
+		void moveDirection(uint8_t dir);
 
 	private:
 		AF_Stepper *_lMotor;

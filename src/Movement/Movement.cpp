@@ -50,3 +50,26 @@ void Movement::turnAround() {
   } 
   _maze->turnedAround();
 }
+
+void Movement::moveDirection(uint8_t dir) {
+  // Turn towards direction
+  switch ((_maze->ori - dir) % 4) {
+    case 0:
+      // Already facing that direction, do nothing
+      break;
+    case 1:
+      turnLeft();
+      break;
+    case 2:
+      turnAround();
+      break;
+    case 3:
+      turnRight();
+      break;
+    default:
+      // Should not happen
+      break;
+  }
+
+  moveForward();
+}

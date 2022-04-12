@@ -16,6 +16,7 @@ moveForward	KEYWORD2
 turnLeft	KEYWORD2
 turnRight	KEYWORD2
 turnAround	KEYWORD2
+moveDirection	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
